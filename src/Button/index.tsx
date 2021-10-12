@@ -1,15 +1,15 @@
 /*
  * @Author: mrrs878@foxmail.com
- * @Date: 2021-10-11 19:47:48
+ * @Date: 2021-10-12 10:10:40
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-11 21:23:58
- * @FilePath: \borderlands3-ui\packages\button\src\Button.tsx
+ * @LastEditTime: 2021-10-12 20:36:10
+ * @FilePath: \borderlands3-ui\src\Button\index.tsx
  */
 import React from 'react';
 import './index.less';
 
 const Button = () => (
-  <button type="button">click me</button>
+  <div role="button" className="button">click me</div>
 );
 
 export { Button };

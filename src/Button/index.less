@@ -1,0 +1,24 @@
+@import '../color.less';
+
+.button {
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 352px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px 20px;
+  font-style: italic;
+  color: @white;
+  background: url(./button.png) no-repeat center center;
+  background-size: 100% 100%;
+  cursor: pointer;
+  font-weight: 800;
+}
+.button:active {
+  opacity: 0.9;
+  transition: opative ease 0.8s;
+}

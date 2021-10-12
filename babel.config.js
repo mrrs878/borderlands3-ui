@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-08-18 20:47:59
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-11 21:12:36
+ * @LastEditTime: 2021-10-12 19:52:51
  * @FilePath: \borderlands3-ui\babel.config.js
  */
 module.exports = {
