@@ -1,0 +1,49 @@
+@import '../color.less';
+
+.buttonContainer {
+  width: max-content;
+  position: relative;
+  transition: opacity ease 0.3s;
+  clip-path: polygon(
+    6px 0, calc(100% - 6px) 0,
+    100% 0, 100% calc(100% - 6px),
+    calc(100% - 6px) 100%, 0 100%,
+    0 calc(100% - 6px),0 6px
+  );
+  background-color: @main-color;
+  background-repeat: no-repeat;
+  padding: 2px;
+}
+.buttonContainer:hover {
+  cursor: pointer;
+}
+.clickable.buttonContainer:active {
+  opacity: 0.8;
+}
+
+.buttonContent {
+  position: relative;
+  color: @white;
+  border: 3px solid @black;
+  clip-path: polygon(
+    6px 0, calc(100% - 6px) 0,
+    100% 0, 100% calc(100% - 6px),
+    calc(100% - 6px) 100%, 0 100%,
+    0 calc(100% - 6px),0 6px
+  );
+  background: linear-gradient(-45deg, @black 4px, @second-color 0) bottom right,
+              linear-gradient(45deg, @black 0, @second-color 0) bottom left,
+              linear-gradient(135deg, @black 4px, @second-color 0) top left,
+              linear-gradient(-135deg, @black 0,@second-color 0) top right;
+  background-size: 51% 51%;
+  background-repeat: no-repeat;
+  padding: 5px 40px;
+  box-sizing: border-box;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+.buttonContainer.disabled:hover {
+  cursor: not-allowed;
+}
