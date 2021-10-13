@@ -1,5 +1,20 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.3](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.2...v0.0.3) (2021-10-13)
+
+
+### Performance Improvements
+
+* 给Button组件添加disable ([cc71e44](https://github.com/mrrs878/borderlands3-ui/commit/cc71e44db7d82a5f6e0c91d32edede35dc4210a5))
+* 优化打包配置 ([2af4095](https://github.com/mrrs878/borderlands3-ui/commit/2af40952df52aef91096a990a05b7709da65f010))
+
+
+### CI
+
+* 修复CHANGELOG.md生成bug ([03194ef](https://github.com/mrrs878/borderlands3-ui/commit/03194ef966263abdf29542cbd3ed206709c1f78c))
+
 ### 0.0.2 (2021-10-12)
 
 
