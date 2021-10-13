@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-12 19:06:44
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-12 19:51:24
+ * @LastEditTime: 2021-10-13 20:50:18
  * @FilePath: \borderlands3-ui\.storybook\main.js
  */
 const path = require("path");
@@ -15,19 +15,19 @@ module.exports = {
       test: /\.less$/,
       use: [
         "style-loader", 
-        "css-loader",
+        {
+          loader: 'css-loader',
+          options: {
+            modules: {
+              localIdentName: '[local]_[hash:base64:6]',
+            },
+          },
+        },
         "less-loader"
       ],
       include: path.resolve(__dirname, "../")
     });
-
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve("babel-loader"),
-      options: {
-        presets: [["react-app", { flow: false, typescript: true }]]
-      }
-    });
+    
     config.resolve.extensions.push(".ts", ".tsx");
 
     return config;

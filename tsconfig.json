@@ -13,12 +13,13 @@
     "sourceMap": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
-    "build",
+    "dist",
     "src/**/*.stories.tsx",
     "src/**/*.test.tsx"
   ]

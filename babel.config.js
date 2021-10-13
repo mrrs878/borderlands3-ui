@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-08-18 20:47:59
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-12 19:52:51
+ * @LastEditTime: 2021-10-13 16:50:15
  * @FilePath: \borderlands3-ui\babel.config.js
  */
 module.exports = {
@@ -17,16 +17,4 @@ module.exports = {
     '@babel/preset-react',
   ],
   plugins: ['@babel/plugin-transform-runtime'],
-  env: {
-    test: {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            targets: { node: true },
-          },
-        ],
-      ],
-    },
-  },
 };
