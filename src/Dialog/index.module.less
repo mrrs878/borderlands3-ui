@@ -1,0 +1,95 @@
+@import '../global.less';
+
+@path: polygon(
+  0px 0px,
+  44% 0px,
+  44.5% 5px,
+  54% 5px,
+  54.5% 0px,
+  100% 0px,
+  100% 100%,
+  0px 100%
+);
+
+.dialogContainer {
+  width: 100%;
+  box-sizing: border-box;
+  clip-path: @path;
+  background-color: @main-color;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 2px 2px 15px;
+  position: fixed;
+  height: max-content;
+  top: 40%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.dialogMask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: @mask-color;
+  z-index: -1;
+}
+
+.dialogBackground {
+  color: @white;
+  clip-path: @path;
+  background: @black;
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  z-index: -1;
+}
+.dialogBackground:before {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  clip-path: @path;
+  content: "";
+  display: block;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  background-color: rgb(9, 25, 36);
+  opacity: 0.8;
+}
+
+.dialogHeader {
+  color: @font-color-primary;
+  font-size: 18px;
+}
+.dialogHeaderBg {
+  background: #1d557c;
+  height: 20px;
+  box-sizing: border-box;
+  margin: 2px;
+  clip-path: @path;
+}
+.dialogHeaderLine {
+  background: linear-gradient(to right, @transparent, @secondary-color, @transparent);
+  width: 30%;
+  height: 2px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+.dialogContent {
+  color: @white;
+}
+
+.dialogFooter {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 0;
+}
+.dialogFooterBtn {
+  margin: 0 10px;
+}

@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-12 10:10:40
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-13 21:21:23
+ * @LastEditTime: 2021-10-14 15:10:14
  * @FilePath: \borderlands3-ui\src\Button\index.tsx
  */
 import React, { DOMAttributes, FC } from 'react';
@@ -13,12 +13,13 @@ interface IButtonProps {
   onClick?: DOMAttributes<HTMLDivElement>['onClick'];
   onKeyDown?: DOMAttributes<HTMLDivElement>['onKeyDown'];
   disabled?: boolean;
+  containerClass?: string;
   // loading?: boolean;
 }
 
 const Button: FC<IButtonProps> = (props) => (
   <div
-    className={`${style.buttonContainer} ${className(style.disabled, props.disabled, style.clickable)}`}
+    className={`${props.containerClass} ${style.buttonContainer} ${className(style.disabled, props.disabled, style.clickable)}`}
     role="button"
     tabIndex={0}
     onKeyDown={props.onKeyDown}
@@ -34,6 +35,7 @@ Button.defaultProps = {
   onClick: () => {},
   onKeyDown: () => {},
   disabled: false,
+  containerClass: '',
   // loading: false,
 };
 

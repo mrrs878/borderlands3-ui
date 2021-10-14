@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-11 22:05:00
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-13 16:55:54
+ * @LastEditTime: 2021-10-14 21:51:30
  * @FilePath: \borderlands3-ui\rollup.config.js
  */
 // @ts-check
@@ -38,7 +38,8 @@ export default {
         autoprefixer({ add: true }),
         postcssUrl({
           url: 'inline',
-          maxSize: 10,
+          maxSize: Infinity,
+          include: ['**/*.woff', '**/*.woff2', '**/*.otf'],
         }),
       ],
     }),
