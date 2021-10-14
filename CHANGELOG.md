@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.3...v0.0.4) (2021-10-14)
+
+
+### Performance Improvements
+
+* 优化样式，添加字体；添加Dialog组件 ([e33e470](https://github.com/mrrs878/borderlands3-ui/commit/e33e470d9562bf87feaddfc446e30d7b72c3f593))
+
 ### [0.0.3](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.2...v0.0.3) (2021-10-13)
 
 
