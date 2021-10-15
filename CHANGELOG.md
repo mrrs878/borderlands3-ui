@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.4...v0.0.5) (2021-10-15)
+
+
+### Performance Improvements
+
+* 优化storybook UI ([56a7c0a](https://github.com/mrrs878/borderlands3-ui/commit/56a7c0a608583d2ebef5e4d483e62739ea2c769b))
+
+
+### Tests
+
+* 添加单元测试用例 ([c928b98](https://github.com/mrrs878/borderlands3-ui/commit/c928b9862ba710de02746632947896f349976d67))
+
+
+### CI
+
+* add storybook.yml ([e3ca8ed](https://github.com/mrrs878/borderlands3-ui/commit/e3ca8eddc9df25af77697473f9b09447221c5b26))
+
+
+### Docs
+
+* 部署文档 ([bad7741](https://github.com/mrrs878/borderlands3-ui/commit/bad77414bc5eb5ab0b87792e1b764f9c34600ecc))
+* update README.md ([24b12d4](https://github.com/mrrs878/borderlands3-ui/commit/24b12d4c8dcb7692659a96c20334290e672ba448))
+
 ### [0.0.4](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.3...v0.0.4) (2021-10-14)
 
 
