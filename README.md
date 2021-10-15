@@ -9,13 +9,18 @@
 
 Borderlands3 UI library for Web APP, built with React.js.
 
+[Preview](https://mrrs878.github.io/borderlands3-ui)
+
+![Preview](https://user-images.githubusercontent.com/38256126/137484207-e35e12c8-9da7-453a-90e8-9d2a06052199.png)
+
+
 ## Components
 
 - [x] Button
 
 - [x] Dialog
 
-- [ ] Slider
+- [ ] Blood
 
 - [ ] Message
 
