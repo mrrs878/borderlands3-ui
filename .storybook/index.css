@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Countach Italic';
+  src: url(../src/assets/fonts/Countach-Italic.otf);
+}
+
+body {
+  background: url('https://mrrsblog.oss-cn-shanghai.aliyuncs.com/borderlands3_bg.png') no-repeat center center !important;
+  background-size: 100% auto !important;
+}
+
+* {
+  font-family: 'Countach Italic';
+  font-size: 24px !important;
+}
+
+.sidebar-item svg {
+  display: none !important;
+}
+
+.os-padding {
+  margin-right: 20px !important;
+}
