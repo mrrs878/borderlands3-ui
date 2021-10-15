@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-12 10:10:40
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-14 15:10:14
+ * @LastEditTime: 2021-10-15 11:12:27
  * @FilePath: \borderlands3-ui\src\Button\index.tsx
  */
 import React, { DOMAttributes, FC } from 'react';
@@ -23,7 +23,7 @@ const Button: FC<IButtonProps> = (props) => (
     role="button"
     tabIndex={0}
     onKeyDown={props.onKeyDown}
-    onClick={props.onClick}
+    onClick={props.disabled ? () => {} : props.onClick}
   >
     <div className={style.buttonContent}>
       { props.children }
