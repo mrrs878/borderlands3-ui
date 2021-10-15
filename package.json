@@ -31,7 +31,7 @@
     "build:ci": "cross-env UMD=1 npm run build",
     "release": "standard-version",
     "storybook": "cross-env BROWSER=none start-storybook -p 6006",
-    "storybook:export": "build-storybook",
+    "storybook:export": "build-storybook -o docs-build --no-dll",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
     "test:watch": "cross-env BABEL_ENV=test npm run test -- --watch",
     "pub": "npm run build:ci && git push --follow-tags origin main && npm publish",

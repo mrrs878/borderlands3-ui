@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 coverage
 packages/*/LICENSE
 packages/cli/template.json
+docs-build
