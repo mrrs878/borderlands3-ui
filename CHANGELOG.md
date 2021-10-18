@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.6...v0.0.7) (2021-10-18)
+
+
+### Performance Improvements
+
+* update Anshin style ([5813a7a](https://github.com/mrrs878/borderlands3-ui/commit/5813a7a648dea93f4d13cc2cf66c8e35b591889a))
+
 ### [0.0.6](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.5...v0.0.6) (2021-10-18)
 
 
