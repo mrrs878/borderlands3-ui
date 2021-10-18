@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-14 10:50:41
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-15 11:14:35
+ * @LastEditTime: 2021-10-18 16:19:28
  * @FilePath: \borderlands3-ui\src\Dialog\Dialog.stories.tsx
  */
 import React, { useState } from 'react';
@@ -24,7 +24,7 @@ export const Default = () => {
   // Posterama Text Regular
   return (
     <>
-      <Button onClick={openDialog}>open dialog</Button>
+      <Button onClick={openDialog}>Quit Game</Button>
       <Dialog visible={visible} onCancel={closeDialog} title="Quit Game?">
         <p style={{ fontFamily: 'Posterama Text Regular', marginTop: '40px' }}>Aue you sure you want to quit the game?</p>
       </Dialog>
