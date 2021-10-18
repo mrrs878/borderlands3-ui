@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.5...v0.0.6) (2021-10-18)
+
+
+### Performance Improvements
+
+* 添加blood组件 ([aa03d3c](https://github.com/mrrs878/borderlands3-ui/commit/aa03d3c7075f5edf2a58a181420fb97daccb1f5b))
+
 ### [0.0.5](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.4...v0.0.5) (2021-10-15)
 
 
