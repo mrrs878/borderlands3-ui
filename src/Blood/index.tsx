@@ -2,10 +2,10 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-18 11:31:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-18 21:28:11
+ * @LastEditTime: 2021-10-18 21:57:52
  * @FilePath: \borderlands3-ui\src\Blood\index.tsx
  */
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import style from './index.module.less';
 
 const ShilterIcon = () => (
@@ -21,6 +21,28 @@ const BloodIcon = () => (
   </svg>
 );
 
+const ShilterContainerZero = () => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    if (canvasRef?.current) {
+      const ctx = canvasRef.current.getContext('2d');
+      ctx.clearRect(0, 0, 140, 20);
+      ctx.moveTo(0, 0);
+      ctx.lineTo(80, 0);
+      ctx.lineTo(82, 5);
+      ctx.lineTo(135, 5);
+      ctx.lineTo(140, 15);
+      ctx.lineTo(5, 15);
+      ctx.lineTo(0, 0);
+      ctx.strokeStyle = 'rgba(255, 0, 0, 0.7)';
+      ctx.stroke();
+    }
+  }, []);
+  return (
+    <canvas ref={canvasRef} height={20} width={140} id="ShilterContainerZero" />
+  );
+};
+
 interface IBloodProps {
   blood: number;
   shilter: number;
@@ -29,11 +51,9 @@ interface IBloodProps {
 const Blood: FC<IBloodProps> = (props) => (
   <div className={style.container}>
     <div className={style.shilterWrapper}>
-      <div className={`${style.shilterContainer}`}>
-        {
-          props.shilter === 0 && <div className={style.mask} />
-        }
-      </div>
+      {
+        props.shilter < 2 ? <ShilterContainerZero /> : <div className={`${style.shilterContainer}`} />
+      }
       <div className={style.shilter}>
         <ShilterIcon />
         <span>{ props.shilter }</span>
