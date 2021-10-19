@@ -1,6 +1,6 @@
 {
   "name": "borderlands3-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "> TODO: description",
   "author": "mrrs878 <mrrs878@foxmail.com>",
   "homepage": "https://github.com/mrrs878/borderlands3-ui#readme",
@@ -29,7 +29,7 @@
     "clean": "rimraf dist",
     "build": "npm run clean && rollup -c",
     "build:ci": "cross-env UMD=1 npm run build",
-    "version": "standard-version",
+    "release": "standard-version",
     "storybook": "cross-env BROWSER=none start-storybook -p 6006",
     "storybook:export": "build-storybook -o docs-build --no-dll",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",

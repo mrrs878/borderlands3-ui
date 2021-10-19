@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.7...v0.0.8) (2021-10-19)
+
+
+### Performance Improvements
+
+* 优化Blood组件（使用svg代替clip-path:polygon） ([2420a74](https://github.com/mrrs878/borderlands3-ui/commit/2420a741c60facb083606392d58cad6ca0b54a71))
+
 ### [0.0.7](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.6...v0.0.7) (2021-10-18)
 
 
