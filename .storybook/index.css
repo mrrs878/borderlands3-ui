@@ -17,6 +17,10 @@ body {
   display: none !important;
 }
 
+.search-field {
+  display: none !important;
+}
+
 .os-padding {
   margin-right: 20px !important;
 }

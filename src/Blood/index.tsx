@@ -2,11 +2,29 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-18 11:31:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-18 21:57:52
+ * @LastEditTime: 2021-10-19 21:48:17
  * @FilePath: \borderlands3-ui\src\Blood\index.tsx
  */
 import React, { FC, useEffect, useRef } from 'react';
+import { SVG, Svg } from '@svgdotjs/svg.js';
 import style from './index.module.less';
+
+type Path = Array<[number, number]>;
+interface IBloodProps {
+  blood: number;
+  totalBlood: number;
+  shilter: number;
+  totalShilter: number;
+  profession: 'Amara' | 'Zane' | 'Moze' | 'FL4K',
+}
+
+interface IDrawPolygon {
+  container: Svg;
+  fullPath: Path;
+  borderColor: string;
+  percent: number;
+  fillColor: [string, string];
+}
 
 const ShilterIcon = () => (
   <svg className={style.shilterIcon} viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4066" width="18" height="18">
@@ -21,52 +39,79 @@ const BloodIcon = () => (
   </svg>
 );
 
-const ShilterContainerZero = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    if (canvasRef?.current) {
-      const ctx = canvasRef.current.getContext('2d');
-      ctx.clearRect(0, 0, 140, 20);
-      ctx.moveTo(0, 0);
-      ctx.lineTo(80, 0);
-      ctx.lineTo(82, 5);
-      ctx.lineTo(135, 5);
-      ctx.lineTo(140, 15);
-      ctx.lineTo(5, 15);
-      ctx.lineTo(0, 0);
-      ctx.strokeStyle = 'rgba(255, 0, 0, 0.7)';
-      ctx.stroke();
-    }
-  }, []);
-  return (
-    <canvas ref={canvasRef} height={20} width={140} id="ShilterContainerZero" />
-  );
+const FULL_PATH_SHILTER = ([[0, 0], [80, 0], [82, 5], [135, 5], [140, 15], [5, 15]]) as Path;
+const FULL_PATH_BLOOD = ([[5, 0], [175, 0], [180, 10], [80, 10], [72, 15], [10, 15]]) as Path;
+
+const drawPolygon = (config: IDrawPolygon) => {
+  if (!config.container) return;
+
+  const {
+    container, fullPath, borderColor, fillColor, percent,
+  } = config;
+
+  container.polygon(fullPath).stroke(borderColor);
+
+  if (percent < 0) return;
+
+  const gradient = container.gradient('linear', (add) => {
+    add.stop(0, fillColor[0], 1);
+    add.stop(50, fillColor[1], 1);
+    add.stop(50, fillColor[0], 0);
+    add.stop(100, fillColor[0], 0);
+    add.from(0, 1);
+    add.to(percent / 100, 1);
+  });
+  gradient.addClass(style.svgGradient);
+  container.attr({ fill: gradient });
 };
 
-interface IBloodProps {
-  blood: number;
-  shilter: number;
-}
+const Blood: FC<IBloodProps> = (props) => {
+  const shilterSVGRef = useRef<Svg>(null);
+  const bloodSVGRef = useRef<Svg>(null);
 
-const Blood: FC<IBloodProps> = (props) => (
-  <div className={style.container}>
-    <div className={style.shilterWrapper}>
-      {
-        props.shilter < 2 ? <ShilterContainerZero /> : <div className={`${style.shilterContainer}`} />
-      }
-      <div className={style.shilter}>
-        <ShilterIcon />
-        <span>{ props.shilter }</span>
+  useEffect(() => {
+    shilterSVGRef.current = SVG().addTo('#shilterWrapper').size(140, 15);
+    bloodSVGRef.current = SVG().addTo('#bloodWrapper').size(180, 15);
+  }, []);
+
+  useEffect(() => {
+    const shilterPercent = (props.shilter / props.totalShilter) * 100;
+    const shilterBorderColor = shilterPercent < 20 ? 'rgba(255, 0, 0, 0.3)' : 'rgba(125, 125, 125, 0.2)';
+    const bloodPercent = (props.blood / props.totalBlood) * 100;
+    const bloodBorderColor = bloodPercent < 20 ? 'rgba(255, 0, 0, 0.3)' : 'rgba(125, 125, 125, 0.2)';
+    drawPolygon({
+      container: shilterSVGRef.current,
+      fullPath: FULL_PATH_SHILTER,
+      borderColor: shilterBorderColor,
+      percent: shilterPercent,
+      fillColor: ['#0b808b', '#10dae9'],
+    });
+    drawPolygon({
+      container: bloodSVGRef.current,
+      fullPath: FULL_PATH_BLOOD,
+      borderColor: bloodBorderColor,
+      percent: bloodPercent,
+      fillColor: ['#810910', '#c40f19'],
+    });
+  }, [props]);
+
+  return (
+    <div className={style.container}>
+      <div id="shilterWrapper" className={style.shilterWrapper}>
+        <div className={style.shilter}>
+          <ShilterIcon />
+          <span>{ props.shilter }</span>
+        </div>
+      </div>
+      <div id="bloodWrapper" className={style.bloodWrapper}>
+        <div className={style.blood}>
+          <BloodIcon />
+          <span>{ props.blood }</span>
+        </div>
+        <div className={style.profession}>{ props.profession }</div>
       </div>
     </div>
-    <div className={style.bloodWrapper}>
-      <div className={style.bloodContainer} />
-      <div className={style.blood}>
-        <BloodIcon />
-        <span>{ props.blood }</span>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export { Blood };
