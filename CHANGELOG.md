@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.8...v0.0.9) (2021-10-20)
+
+
+### Performance Improvements
+
+* 添加createComponent脚本 ([11f8be5](https://github.com/mrrs878/borderlands3-ui/commit/11f8be5921675c0eac3495eafb739e6b70ca918d))
+* 修改homepage和license ([641fa34](https://github.com/mrrs878/borderlands3-ui/commit/641fa3433da4d6bcb002e94b801656443176aa09))
+* 优化Blood组件动态设置值 ([413b095](https://github.com/mrrs878/borderlands3-ui/commit/413b09553a2583fc4112f5b828e5e09fdd0306ad))
+
 ### [0.0.8](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.7...v0.0.8) (2021-10-19)
 
 
