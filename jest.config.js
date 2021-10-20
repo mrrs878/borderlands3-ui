@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-08-18 20:47:59
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-15 10:33:34
+ * @LastEditTime: 2021-10-20 19:18:30
  * @FilePath: \borderlands3-ui\jest.config.js
  */
 // For a detailed explanation regarding each configuration property, visit:
@@ -15,6 +15,7 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/scripts/'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   setupFilesAfterEnv: [
     '<rootDir>/setupTests.js',

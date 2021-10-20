@@ -29,14 +29,15 @@
     "clean": "rimraf dist",
     "build": "npm run clean && rollup -c",
     "build:ci": "cross-env UMD=1 npm run build",
+    "generate": "node ./scripts/createComponent",
+    "lint": "eslint src",
+    "pub": "npm run build:ci && git push --follow-tags origin main && npm publish",
+    "prepare": "husky install",
     "release": "standard-version",
     "storybook": "cross-env BROWSER=none start-storybook -p 6006",
     "storybook:export": "build-storybook -o docs-build --no-dll",
     "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
-    "test:watch": "cross-env BABEL_ENV=test npm run test -- --watch",
-    "pub": "npm run build:ci && git push --follow-tags origin main && npm publish",
-    "lint": "eslint src",
-    "prepare": "husky install"
+    "test:watch": "cross-env BABEL_ENV=test npm run test -- --watch"
   },
   "bugs": {
     "url": "https://github.com/mrrs878/borderlands3-ui/issues"
