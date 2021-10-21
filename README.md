@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-09 19:36:03
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-20 10:23:01
+ * @LastEditTime: 2021-10-21 17:07:13
  * @FilePath: \borderlands3-ui\README.md
 -->
 # borderlands3-ui
@@ -38,6 +38,8 @@ export const Disabled = () => <Button disabled>disabled</Button>;
 - [x] Dialog
 
 - [x] Blood
+
+- [x] Modal
 
 - [ ] Message
 

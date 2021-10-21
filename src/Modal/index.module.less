@@ -1,0 +1,48 @@
+// Generated with util/create-component.js
+@import "../global.less";
+
+.wapper {
+  position: fixed;
+  top: 40%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.container {
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  top: 40%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  margin: 0 auto;
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+
+.mask {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: @mask-color;
+}
+
+.backgroundSvg {
+  transition: border linear .2s, box-shadow linear .5s;
+  border-color: @main-color;
+  filter: drop-shadow(0 0 10px @secondary-color);
+  background: @transparent;
+  height: 100%;
+  width: 100%;
+}

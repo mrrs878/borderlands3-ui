@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-20 12:00:49
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-20 14:29:25
+ * @LastEditTime: 2021-10-20 21:09:52
  * @FilePath: \borderlands3-ui\scripts\templates\component.less.js
  */
 module.exports = () => ({
@@ -13,5 +13,5 @@ module.exports = () => ({
   display: block;
 }
 `,
-  extension: '.less',
+  extension: '.module.less',
 });
