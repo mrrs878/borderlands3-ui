@@ -27,8 +27,7 @@
   },
   "scripts": {
     "clean": "rimraf dist",
-    "build": "npm run clean && rollup -c",
-    "build:ci": "cross-env UMD=1 npm run build",
+    "build": "npm run clean && cross-env BABEL_ENV=production rollup -c",
     "generate": "node ./scripts/createComponent",
     "lint": "eslint src",
     "pub": "npm run build:ci && git push --follow-tags origin main && npm publish",
@@ -69,6 +68,7 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/parser": "^4.29.3",
+    "babel-plugin-react-remove-properties": "^0.3.0",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",

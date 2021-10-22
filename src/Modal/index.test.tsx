@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-20 21:10:00
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-21 21:45:01
+ * @LastEditTime: 2021-10-22 14:45:53
  * @FilePath: \borderlands3-ui\src\Modal\index.test.tsx
  */
 // Generated with util/create-component.js
@@ -20,7 +20,7 @@ describe('Test Component', () => {
     const App = () => {
       const [visible, setVisible] = useState(true);
       return (
-        <Modal maskCloseable visible={visible} onClose={() => setVisible(false)} />
+        <Modal mask={{ closeable: true, onClick: () => setVisible(false) }} visible={visible} />
       );
     };
 

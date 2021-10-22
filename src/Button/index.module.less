@@ -1,20 +1,34 @@
 @import '../global.less';
 
+@polygon: polygon(
+  6px 0, calc(100% - 6px) 0,
+  100% 0, 100% calc(100% - 6px),
+  calc(100% - 6px) 100%, 0 100%,
+  0 calc(100% - 6px),0 6px
+);
+
 .buttonContainer {
   width: max-content;
   position: relative;
   transition: opacity ease 0.3s;
-  clip-path: polygon(
-    6px 0, calc(100% - 6px) 0,
-    100% 0, 100% calc(100% - 6px),
-    calc(100% - 6px) 100%, 0 100%,
-    0 calc(100% - 6px),0 6px
-  );
   background-color: @main-color;
   background-repeat: no-repeat;
   padding: 2px;
-  filter: drop-shadow(-5px 0px 3px @black);
   user-select: none;
+}
+.polygonContainer {
+  clip-path: @polygon;
+  filter: drop-shadow(-5px 0px 3px @black);
+}
+.plainContainer {
+  border-radius: 3px;
+  background-color: @main-color;
+}
+.interactiveContainer {
+  border-radius: 3px;
+  background-color: @main-color;
+  transform: rotate(360deg);
+  transition: all ease 3s;
 }
 .buttonContainer:hover {
   cursor: pointer;
@@ -27,21 +41,28 @@
   position: relative;
   color: @white;
   text-shadow: @buttonTextShadow;
-  border: 2px solid @black;
-  clip-path: polygon(
-    6px 0, calc(100% - 6px) 0,
-    100% 0, 100% calc(100% - 6px),
-    calc(100% - 6px) 100%, 0 100%,
-    0 calc(100% - 6px),0 6px
-  );
+  padding: 5px 60px;
+  box-sizing: border-box;
+}
+.polygonContent {
+  clip-path: @polygon;
   background: linear-gradient(-45deg, @black 4px, @secondary-color 0) bottom right,
               linear-gradient(45deg, @black 0, @secondary-color 0) bottom left,
               linear-gradient(135deg, @black 4px, @secondary-color 0) top left,
               linear-gradient(-135deg, @black 0,@secondary-color 0) top right;
   background-size: 51% 51%;
   background-repeat: no-repeat;
-  padding: 5px 60px;
-  box-sizing: border-box;
+  border: 2px solid @black;
+}
+.plainContent {
+  border-radius: 3px;
+  padding: 2px 8px;
+  background-color: @secondary-color;
+}
+.interactiveContent {
+  border-radius: 3px;
+  padding: 2px 8px;
+  background-color: @secondary-color;
 }
 
 .disabled {

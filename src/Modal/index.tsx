@@ -2,7 +2,7 @@
 * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-20 21:10:00
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-21 21:19:08
+ * @LastEditTime: 2021-10-22 14:45:53
  * @FilePath: \borderlands3-ui\src\Modal\index.tsx
 */
 /* eslint-disable jsx-a11y/control-has-associated-label */
@@ -17,9 +17,13 @@ interface IModalProps {
   visible: boolean;
   containerClass?: string;
   style?: React.CSSProperties;
-  maskCloseable?: boolean;
-  onClose: DOMAttributes<HTMLDivElement>['onClick'];
+  mask?: Mask;
   onKeyDown?: DOMAttributes<HTMLDivElement>['onKeyDown'];
+}
+
+interface Mask {
+  closeable: boolean;
+  onClick: DOMAttributes<HTMLDivElement>['onClick'];
 }
 
 const Modal: FC<IModalProps> = (props) => {
@@ -72,7 +76,7 @@ const Modal: FC<IModalProps> = (props) => {
         role="button"
         className={style.mask}
         onKeyDown={props.onKeyDown}
-        onClick={props.maskCloseable ? props.onClose : () => {}}
+        onClick={props.mask.closeable ? props.mask.onClick : () => {}}
       />
       <div className={`${style.container} ${props.containerClass}`} style={props.style}>
         <div className={style.background} id="backgroundSVGRef" />
@@ -86,7 +90,10 @@ const Modal: FC<IModalProps> = (props) => {
 Modal.defaultProps = {
   containerClass: '',
   style: {},
-  maskCloseable: false,
+  mask: {
+    closeable: false,
+    onClick: () => {},
+  },
   onKeyDown: () => {},
 };
 
