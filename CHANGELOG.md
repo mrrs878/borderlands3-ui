@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.9...v0.0.10) (2021-10-22)
+
+
+### Performance Improvements
+
+* 添加Modal组件 ([692e350](https://github.com/mrrs878/borderlands3-ui/commit/692e350c83c99dd3b419fa93c000d8ece72c1ba1))
+* 完善Modal的mask点击关闭设置 ([d3544d0](https://github.com/mrrs878/borderlands3-ui/commit/d3544d010b294c7ad83d28a2379d27cc6d60742d))
+
 ### [0.0.9](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.8...v0.0.9) (2021-10-20)
 
 
