@@ -30,7 +30,7 @@
     "build": "npm run clean && cross-env BABEL_ENV=production rollup -c",
     "generate": "node ./scripts/createComponent",
     "lint": "eslint src",
-    "pub": "npm run build:ci && git push --follow-tags origin main && npm publish",
+    "pub": "npm run build && git push --follow-tags origin main && npm publish",
     "prepare": "husky install",
     "release": "standard-version",
     "storybook": "cross-env BROWSER=none start-storybook -p 6006",
