@@ -29,6 +29,15 @@ jobs:
         run: | # Install npm packages and build the Storybook files
           yarn install
           yarn storybook:export
+
+      - name: Tests 🎯
+        run: yarn test --watchAll=false --coverage
+        
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@3.6.2
         with:
