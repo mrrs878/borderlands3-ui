@@ -2,19 +2,20 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-26 21:59:58
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-28 21:24:57
+ * @LastEditTime: 2021-10-29 21:55:09
  */
 import React, { FC, useEffect } from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 import { SVG } from '@svgdotjs/svg.js';
 import style from './index.module.less';
 
 interface ILeveledUpProps {
-  level: number
+  level: number;
 }
 
 const LeveledUp: FC<ILeveledUpProps> = (props) => {
   useEffect(() => {
-    const svgContainer: HTMLDivElement = document.querySelector('#progressSVG');
+    const svgContainer: HTMLDivElement = document.querySelector('#leveledUpSVG');
     if (svgContainer) {
       const width = 300;
       const height = 50;
@@ -56,7 +57,7 @@ const LeveledUp: FC<ILeveledUpProps> = (props) => {
 
   return (
     <div className={style.container}>
-      <div className={style.svgContainer} id="progressSVG" />
+      <div className={style.svgContainer} id="leveledUpSVG" />
     </div>
   );
 };
@@ -67,7 +68,7 @@ interface IMissionCompleteProps {
 
 const MissionComplete: FC<IMissionCompleteProps> = (props) => {
   useEffect(() => {
-    const svgContainer: HTMLDivElement = document.querySelector('#progressSVG');
+    const svgContainer: HTMLDivElement = document.querySelector('#missionCompleteSVG');
     if (svgContainer) {
       const width = 600;
       const height = 300;
@@ -89,14 +90,46 @@ const MissionComplete: FC<IMissionCompleteProps> = (props) => {
 
   return (
     <div className={style.container}>
-      <div className={style.svgContainer} id="progressSVG" />
+      <div className={style.svgContainer} id="missionCompleteSVG" />
     </div>
   );
 };
 
-const Message = {
-  LeveledUp,
-  MissionComplete,
+function message() {}
+
+interface IMessage {
+  LeveledUp: (props: ILeveledUpProps & {
+    duration?: number;
+  }) => void;
+  MissionComplete: (props: IMissionCompleteProps & {
+    duration?: number;
+  }) => void;
+}
+
+message.prototype.getInstance = function getInstance() {
+  if (!this.container) {
+    const container = document.createElement('div');
+    container.id = 'messageRoot';
+    document.body.appendChild(container);
+    this.container = container;
+    this.instance = {
+      LeveledUp: (props: ILeveledUpProps & { duration?: number }) => {
+        const messageRoot = document.querySelector('#messageRoot');
+        render(<LeveledUp level={props.level} />, messageRoot);
+        setTimeout(() => {
+          unmountComponentAtNode(messageRoot);
+        }, props.duration || 1500);
+      },
+      MissionComplete: (props: IMissionCompleteProps & { duration?: number }) => {
+        const messageRoot = document.querySelector('#messageRoot');
+        render(<MissionComplete missionName={props.missionName} />, messageRoot);
+        setTimeout(() => {
+          unmountComponentAtNode(messageRoot);
+        }, props.duration || 1500);
+      },
+    };
+  }
+  return this.instance;
 };
 
-export { Message };
+export const Message: IMessage = message.prototype.getInstance();
