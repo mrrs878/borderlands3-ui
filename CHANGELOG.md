@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.10...v0.0.11) (2021-10-29)
+
+
+### Bug Fixes
+
+* 修复script ([ab522f5](https://github.com/mrrs878/borderlands3-ui/commit/ab522f58476e3c383ff5b57430d985d73d5a90c8))
+
+
+### Performance Improvements
+
+* 添加Message组件 ([00cd905](https://github.com/mrrs878/borderlands3-ui/commit/00cd90516f99166d39cdbe237c8adda22db1d3ea))
+* 完善可交互按钮（InteractiveButton） ([0572721](https://github.com/mrrs878/borderlands3-ui/commit/05727210a23bf806ff133b1a97b1c65b8ba87678))
+* 完善LeveledUp;添加MissionComplete ([4268548](https://github.com/mrrs878/borderlands3-ui/commit/426854858289a08955cd62e7a258c89621f786f5))
+* 优化Message ([9e83afa](https://github.com/mrrs878/borderlands3-ui/commit/9e83afa82d1f5eed4501d1f6851d7a7cc5d051a0))
+
+
+### Tests
+
+* 完善Button测试用例 ([d82d13a](https://github.com/mrrs878/borderlands3-ui/commit/d82d13a4ed239208982ac4b68c04c93c9ff42763))
+
+
+### CI
+
+* 添加Coveralls ([b8e431e](https://github.com/mrrs878/borderlands3-ui/commit/b8e431e82ca958e6ec3ec54d3f275f0db7877645))
+
+
+### Docs
+
+* 更新README.md ([c4153c3](https://github.com/mrrs878/borderlands3-ui/commit/c4153c30dda9873a4e7032e7aa349c869bbdda03))
+
 ### [0.0.10](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.9...v0.0.10) (2021-10-22)
 
 
