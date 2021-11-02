@@ -3,17 +3,118 @@
 
 .container {
   display: block;
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
+  position: relative;
 }
 
 .background {
   display: block;
+  position: absolute;
+  z-index: -1;
 }
 .backgroundSvg {
-  height: 200px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
 }
 .backgroundTopRight {
   transform: rotateY(-180deg) translateX(-100%);
+}
+
+.blank {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 25px;
+  color: @white;
+  box-sizing: border-box;
+  * {
+    font-family: sans-serif;
+  }
+  font-size: 12px;
+  .score {
+    font-size: 24px;
+    margin-top: -8px;
+    display: inline-block;
+    font-family: 'Countach Italic';
+    margin-right: 20px;
+  }
+  .level {
+    display: inline-block;
+    margin-left: 20px;
+    font-family: 'Countach Italic';
+    font-size: 18px;
+  }
+}
+
+.title {
+  text-align: center;
+  color: #38c855;
+  font-size: 18px;
+}
+
+.content {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-sizing: border-box;
+  .left {
+    width: 66%;
+  }
+  .right {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2px;
+  }
+  .contentItem {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    background: #313538;
+  }
+  .rarity {
+    height: 20px;
+    line-height: 20px;
+    background: #313538;
+    text-align: center;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  }
+  .rarityBottom {
+    height: 42px;
+    background: #313538;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%),
+  }
+}
+
+.gunIndicatorContainer {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  background: #313538;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2px;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-left: 10%;
+  padding-right: 20px;
+  .gunIndicatorContainerTitle {
+    color: #38c855;
+    font-family: sans-serif;
+    display: inline-block;
+    flex: 1;
+    text-align: right;
+  }
+  .gunIndicatorContainerValue {
+    color: #96c88b;
+    font-family: sans-serif;
+    display: inline-block;
+    width: 30%;
+  }
 }
