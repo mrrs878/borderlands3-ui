@@ -3,7 +3,7 @@
 
 .container {
   display: block;
-  height: 300px;
+  height: 320px;
   width: 400px;
   position: relative;
 }
@@ -14,7 +14,7 @@
   z-index: -1;
 }
 .backgroundSvg {
-  height: 300px;
+  height: 320px;
   width: 400px;
 }
 .backgroundTopRight {
@@ -23,6 +23,11 @@
 
 .blank {
   flex: 1;
+}
+
+.gun {
+  background: url(../assets/img/gun.png) no-repeat center;
+  background-size: 45px 31px;
 }
 
 .header {
@@ -84,11 +89,41 @@
     background: #313538;
     text-align: center;
     clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+    color: #38c855;
+    font-family: sans-serif;
+    font-size: 12px;
   }
   .rarityBottom {
     height: 42px;
     background: #313538;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%),
+  }
+}
+
+.addition {
+  * {
+    font-family: sans-serif;
+  }
+  padding-left: 20px;
+  margin-top: 5px;
+  .additionItem {
+    line-height: 23px;
+  }
+  .additionItem:last-child {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .additionNumber {
+    color: #dbdfdf;
+  }
+  .additionDesc {
+    margin-left: 5px;
+    color: #534f5a;
+  }
+  .additionItem::before {
+    content: '▪';
+    margin-right: 8px;
+    color: #534f5a;
   }
 }
 
@@ -117,4 +152,15 @@
     display: inline-block;
     width: 30%;
   }
+}
+
+.company {
+  position: absolute;
+  bottom: 0px;
+  right: 12px;
+  background: url(../assets/img/jakobs.png) no-repeat center;
+  width: 115px;
+  height: 45px;
+  background-size: 115px 45px;
+  transform: scale(0.8);
 }
