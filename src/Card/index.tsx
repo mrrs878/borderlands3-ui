@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-11-01 21:00:34
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-03 21:49:36
+ * @LastEditTime: 2021-11-04 21:49:15
  */
 import React, { useEffect, useRef } from 'react';
 import { Svg, SVG } from '@svgdotjs/svg.js';
@@ -23,6 +23,7 @@ const GunIndicator = (props: IGunIndicatorProps) => (
 );
 
 const Gun = () => {
+  const gunContainer = useRef<HTMLDivElement>(null);
   const backgroundSVGRef = useRef<Svg>(null);
 
   useEffect(() => {
@@ -34,8 +35,7 @@ const Gun = () => {
 
   useEffect(() => {
     if (backgroundSVGRef.current) {
-      const clientWidth = 400;
-      const clientHeight = 320;
+      const { clientWidth, clientHeight } = gunContainer.current;
       const offset1 = 20;
       const storkWidth = 4;
       backgroundSVGRef.current.polygon([
@@ -95,7 +95,7 @@ const Gun = () => {
   }, []);
 
   return (
-    <div className={style.container}>
+    <div className={style.container} ref={gunContainer}>
       <div className={style.background} id="backgroundSVGRef" />
       <div className={style.header}>
         <div className={style.score}>101</div>
@@ -140,6 +140,14 @@ const Gun = () => {
             Critical Hits ricochet 1 bullet at the nearest enemy
           </span>
         </div>
+      </div>
+      <div className={style.amount}>
+        <div className={style.currency}>$</div>
+        {
+          [1, 2, 3].map((item) => (
+            <div className={style.amountItem}>{ item }</div>
+          ))
+        }
       </div>
       <div className={style.company} />
     </div>
