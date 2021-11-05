@@ -1,0 +1,202 @@
+// Generated with util/create-component.js
+@import "../global.less";
+
+.container {
+  display: block;
+  min-height: 320px;
+  width: 400px;
+  position: relative;
+}
+
+.background {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+.backgroundSvg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.backgroundTopRight {
+  transform: rotateY(-180deg) translateX(-100%);
+}
+
+.blank {
+  flex: 1;
+}
+
+.gun {
+  background: url(../assets/img/gun.png) no-repeat center;
+  background-size: 45px 31px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 9px;
+  padding-right: 25px;
+  color: @white;
+  box-sizing: border-box;
+  height: 20px;
+  align-items: center;
+  * {
+    font-family: sans-serif;
+  }
+  font-size: 12px;
+  .score {
+    font-size: 26px;
+    margin-top: -8px;
+    display: inline-block;
+    font-family: 'Countach BlodItalic';
+    margin-right: 20px;
+    -webkit-text-stroke: 1px #000403;
+    color: #96c88b;
+  }
+  .level {
+    display: inline-block;
+    margin-left: 20px;
+    font-family: 'Countach Italic';
+    font-size: 20px;
+    margin-bottom: -4px;
+  }
+}
+
+.title {
+  text-align: center;
+  color: #38c855;
+  font-size: 18px;
+}
+
+.content {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  box-sizing: border-box;
+  .left {
+    width: 66%;
+  }
+  .right {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2px;
+  }
+  .contentItem {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    background: #313538;
+  }
+  .rarity {
+    height: 20px;
+    line-height: 20px;
+    background: #313538;
+    text-align: center;
+    clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+    color: #38c855;
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+  .rarityBottom {
+    height: 42px;
+    background: #313538;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%),
+  }
+}
+
+.addition {
+  * {
+    font-family: sans-serif;
+  }
+  padding-left: 20px;
+  margin-top: 5px;
+  .additionItem {
+    line-height: 23px;
+  }
+  .additionNumber {
+    color: #dbdfdf;
+  }
+  .additionDesc {
+    margin-left: 5px;
+    color: #534f5a;
+  }
+  .additionItem::before {
+    content: '▪';
+    margin-right: 8px;
+    color: #534f5a;
+  }
+}
+
+.superAddition {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.gunIndicatorContainer {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  background: #313538;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2px;
+  font-size: 14px;
+  box-sizing: border-box;
+  padding-left: 10%;
+  padding-right: 20px;
+  .gunIndicatorContainerTitle {
+    color: #38c855;
+    font-family: sans-serif;
+    display: inline-block;
+    flex: 1;
+    text-align: right;
+  }
+  .gunIndicatorContainerValue {
+    color: #96c88b;
+    font-family: sans-serif;
+    display: inline-block;
+    width: 30%;
+  }
+}
+
+.amount {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 25px;
+  display: flex;
+  margin: 0 auto;
+  width: max-content;
+  text-align: center;
+  bottom: 2px;
+  color: #96c88b;
+  align-items: center;
+  .currency {
+    height: 21px;
+    width: 15px;
+    line-height: 21px;
+    background: #2a2c2d;
+    border: 1px solid #000403;
+  }
+  .amountItem {
+    background: #2a2c2d;
+    height: 25px;
+    width: 15px;
+    line-height: 25px;
+    border: 1px solid #000403;
+    font-size: 22px;
+  }
+}
+
+.company.jakobs {
+  background: url(../assets/img/jakobs.png) no-repeat center;
+  width: 115px;
+  height: 45px;
+  background-size: 115px 45px;
+  transform: scale(0.8) translateX(calc(-100% - 45px));
+  margin-left: 100%;
+}
