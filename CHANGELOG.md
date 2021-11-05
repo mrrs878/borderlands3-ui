@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.11...v0.0.12) (2021-11-05)
+
+
+### Features
+
+* 完成Card.Gun组件背景 ([1241387](https://github.com/mrrs878/borderlands3-ui/commit/12413873fdc64261d1612b1a21bc358fe7828f1f))
+
+
+### Performance Improvements
+
+* 抽离Card.Gun至单独文件 ([26f8956](https://github.com/mrrs878/borderlands3-ui/commit/26f8956a50895a9b9b1256ad8f1619c0e4891e65))
+* 完善Card.Gun ([9560222](https://github.com/mrrs878/borderlands3-ui/commit/9560222d57ac07b9dd1bd404f415e9990ae89828))
+* 完善Card.Gun ([e70fa30](https://github.com/mrrs878/borderlands3-ui/commit/e70fa30fef8f53858b850772bfc088429b1b0cb6))
+* 完善Card.Gun ([a3050fb](https://github.com/mrrs878/borderlands3-ui/commit/a3050fba55a6b8ef1ac3c5f7cd633eda5b080b87))
+
 ### [0.0.11](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.10...v0.0.11) (2021-10-29)
 
 
