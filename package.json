@@ -105,6 +105,7 @@
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.1.1"
+    "@svgdotjs/svg.js": "^3.1.1",
+    "rc-notification": "^4.5.7"
   }
 }

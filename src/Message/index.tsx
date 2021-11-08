@@ -2,12 +2,16 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-26 21:59:58
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-29 21:55:09
+ * @LastEditTime: 2021-11-08 21:53:32
  */
+
 import React, { FC, useEffect } from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import Notification from 'rc-notification';
+import { NotificationInstance } from 'rc-notification/es/Notification';
 import { SVG } from '@svgdotjs/svg.js';
+import 'rc-notification/assets/index.css';
 import style from './index.module.less';
+import './index.css';
 
 interface ILeveledUpProps {
   level: number;
@@ -107,25 +111,23 @@ interface IMessage {
 }
 
 message.prototype.getInstance = function getInstance() {
-  if (!this.container) {
-    const container = document.createElement('div');
-    container.id = 'messageRoot';
-    document.body.appendChild(container);
-    this.container = container;
+  if (!this.notificationInstance) {
+    let notificationInstance: NotificationInstance = null;
+    Notification.newInstance({}, (n) => {
+      notificationInstance = n;
+    });
     this.instance = {
       LeveledUp: (props: ILeveledUpProps & { duration?: number }) => {
-        const messageRoot = document.querySelector('#messageRoot');
-        render(<LeveledUp level={props.level} />, messageRoot);
-        setTimeout(() => {
-          unmountComponentAtNode(messageRoot);
-        }, props.duration || 1500);
+        notificationInstance.notice({
+          content: <LeveledUp level={props.level} />,
+          duration: props.duration,
+        });
       },
       MissionComplete: (props: IMissionCompleteProps & { duration?: number }) => {
-        const messageRoot = document.querySelector('#messageRoot');
-        render(<MissionComplete missionName={props.missionName} />, messageRoot);
-        setTimeout(() => {
-          unmountComponentAtNode(messageRoot);
-        }, props.duration || 1500);
+        notificationInstance.notice({
+          content: <MissionComplete missionName={props.missionName} />,
+          duration: props.duration,
+        });
       },
     };
   }

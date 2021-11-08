@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-26 21:59:58
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-29 21:36:17
+ * @LastEditTime: 2021-11-08 21:56:44
  * @FilePath: \borderlands3-ui\src\Message\Message.stories.tsx
  */
 
@@ -20,5 +20,5 @@ export const LeveledUp = () => (
 );
 
 export const MissionComplete = () => (
-  <Button onClick={() => Message.MissionComplete({ missionName: 'Children of the Vault' })}>MissionComplete</Button>
+  <Button onClick={() => Message.MissionComplete({ missionName: 'Children of the Vault' })}>Mission Complete</Button>
 );
