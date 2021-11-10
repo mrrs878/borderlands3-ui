@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-11-05 19:22:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-05 20:03:14
+ * @LastEditTime: 2021-11-10 21:23:38
  * @FilePath: \borderlands3-ui\src\Card\Gun.tsx
  */
 
@@ -157,7 +157,7 @@ const Gun = (props: ICardGunProps) => {
       <div className={style.addition}>
         {
           props.additions.map((item) => (
-            <div className={style.additionItem}>
+            <div key={item.desc} className={style.additionItem}>
               <span className={style.additionNumber}>{ item.value }</span>
               <span className={style.additionDesc}>{ item.desc }</span>
             </div>
@@ -167,7 +167,7 @@ const Gun = (props: ICardGunProps) => {
       <div className={`${style.superAddition} ${style.addition}`} ref={superAddionContainer}>
         {
           props.superAddions.map((item) => (
-            <div className={style.additionItem}>
+            <div key={item} className={style.additionItem}>
               <span className={style.additionDesc}>{ item }</span>
             </div>
           ))
@@ -176,8 +176,9 @@ const Gun = (props: ICardGunProps) => {
       <div className={style.amount}>
         <div className={style.currency}>$</div>
         {
-          props.currency.split('').map((item) => (
-            <div className={style.amountItem}>{ item }</div>
+          props.currency.split('').map((item, index) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <div key={index} className={style.amountItem}>{ item }</div>
           ))
         }
       </div>

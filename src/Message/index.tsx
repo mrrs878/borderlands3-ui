@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-26 21:59:58
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-08 21:53:32
+ * @LastEditTime: 2021-11-10 20:28:30
  */
 
 import React, { FC, useEffect } from 'react';
@@ -78,12 +78,10 @@ const MissionComplete: FC<IMissionCompleteProps> = (props) => {
       const height = 300;
       const canvas = SVG().size(width, height).addTo(svgContainer);
 
-      const t = canvas.text('MISSION COMPLETE')
+      canvas.text('MISSION COMPLETE')
         .addClass(style.levelText)
         .center(width / 2, height / 2)
         .attr({ fill: '#f9d730', filter: 'drop-shadow(0 0 6px #824111)' });
-
-      console.log(t.width());
 
       canvas.text(props.missionName)
         .addClass(style.leveledUpText)
