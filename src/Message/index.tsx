@@ -2,12 +2,16 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-26 21:59:58
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-29 21:55:09
+ * @LastEditTime: 2021-11-10 20:28:30
  */
+
 import React, { FC, useEffect } from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import Notification from 'rc-notification';
+import { NotificationInstance } from 'rc-notification/es/Notification';
 import { SVG } from '@svgdotjs/svg.js';
+import 'rc-notification/assets/index.css';
 import style from './index.module.less';
+import './index.css';
 
 interface ILeveledUpProps {
   level: number;
@@ -74,12 +78,10 @@ const MissionComplete: FC<IMissionCompleteProps> = (props) => {
       const height = 300;
       const canvas = SVG().size(width, height).addTo(svgContainer);
 
-      const t = canvas.text('MISSION COMPLETE')
+      canvas.text('MISSION COMPLETE')
         .addClass(style.levelText)
         .center(width / 2, height / 2)
         .attr({ fill: '#f9d730', filter: 'drop-shadow(0 0 6px #824111)' });
-
-      console.log(t.width());
 
       canvas.text(props.missionName)
         .addClass(style.leveledUpText)
@@ -107,25 +109,23 @@ interface IMessage {
 }
 
 message.prototype.getInstance = function getInstance() {
-  if (!this.container) {
-    const container = document.createElement('div');
-    container.id = 'messageRoot';
-    document.body.appendChild(container);
-    this.container = container;
+  if (!this.notificationInstance) {
+    let notificationInstance: NotificationInstance = null;
+    Notification.newInstance({}, (n) => {
+      notificationInstance = n;
+    });
     this.instance = {
       LeveledUp: (props: ILeveledUpProps & { duration?: number }) => {
-        const messageRoot = document.querySelector('#messageRoot');
-        render(<LeveledUp level={props.level} />, messageRoot);
-        setTimeout(() => {
-          unmountComponentAtNode(messageRoot);
-        }, props.duration || 1500);
+        notificationInstance.notice({
+          content: <LeveledUp level={props.level} />,
+          duration: props.duration,
+        });
       },
       MissionComplete: (props: IMissionCompleteProps & { duration?: number }) => {
-        const messageRoot = document.querySelector('#messageRoot');
-        render(<MissionComplete missionName={props.missionName} />, messageRoot);
-        setTimeout(() => {
-          unmountComponentAtNode(messageRoot);
-        }, props.duration || 1500);
+        notificationInstance.notice({
+          content: <MissionComplete missionName={props.missionName} />,
+          duration: props.duration,
+        });
       },
     };
   }

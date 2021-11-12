@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-18 11:31:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-20 11:57:35
+ * @LastEditTime: 2021-11-11 21:34:46
  * @FilePath: \borderlands3-ui\src\Blood\index.tsx
  */
 import React, { FC, useEffect, useRef } from 'react';
@@ -39,7 +39,7 @@ const BloodIcon = () => (
   </svg>
 );
 
-const FULL_PATH_SHILTER = ([[0, 0], [80, 0], [82, 5], [135, 5], [140, 15], [5, 15]]) as Path;
+const FULL_PATH_SHILTER = ([[0, 0], [60, 0], [64, 3], [135, 3], [140, 15], [5, 15]]) as Path;
 const FULL_PATH_BLOOD = ([[5, 0], [175, 0], [180, 10], [80, 10], [72, 15], [10, 15]]) as Path;
 
 const drawPolygon = (config: IDrawPolygon) => {
@@ -49,7 +49,7 @@ const drawPolygon = (config: IDrawPolygon) => {
     container, fullPath, borderColor, fillColor, percent,
   } = config;
 
-  if (!container.findOne('polygon')) container.polygon(fullPath).stroke(borderColor);
+  if (!container.findOne('polygon')) container.polygon(fullPath).stroke({ color: borderColor, width: 2 });
 
   if (percent < 0) return;
 
@@ -60,8 +60,8 @@ const drawPolygon = (config: IDrawPolygon) => {
   } else {
     gradient = container.gradient('linear', (add) => {
       add.stop(0, fillColor[0], 1);
-      add.stop(40, fillColor[1], 1);
-      add.stop(40, fillColor[0], 0);
+      add.stop(80, fillColor[1], 1);
+      add.stop(80, fillColor[0], 0);
       add.stop(100, fillColor[1], 0);
       add.from(0, 1);
       add.to(percent / 100, 1);
