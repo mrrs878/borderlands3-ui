@@ -2,11 +2,12 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-18 11:31:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-11 21:34:46
+ * @LastEditTime: 2021-11-14 18:07:09
  * @FilePath: \borderlands3-ui\src\Blood\index.tsx
  */
 import React, { FC, useEffect, useRef } from 'react';
 import { SVG, Svg, Gradient } from '@svgdotjs/svg.js';
+import anime from 'animejs';
 import style from './index.module.less';
 
 type Path = Array<[number, number]>;
@@ -19,6 +20,7 @@ interface IBloodProps {
 }
 
 interface IDrawPolygon {
+  id: string;
   container: Svg;
   fullPath: Path;
   borderColor: string;
@@ -46,14 +48,14 @@ const drawPolygon = (config: IDrawPolygon) => {
   if (!config.container) return;
 
   const {
-    container, fullPath, borderColor, fillColor, percent,
+    container, fullPath, borderColor, fillColor, percent, id,
   } = config;
 
-  if (!container.findOne('polygon')) container.polygon(fullPath).stroke({ color: borderColor, width: 2 });
+  if (!container.findOne(`#${id}Polygon`)) container.polygon(fullPath).id(`${id}Polygon`).stroke({ color: borderColor, width: 2 });
 
   if (percent < 0) return;
 
-  let gradient = container.findOne('linearGradient');
+  let gradient = container.findOne(`#${id}Gradient`);
 
   if (gradient instanceof Gradient) {
     gradient.to(percent / 100, 1);
@@ -65,7 +67,7 @@ const drawPolygon = (config: IDrawPolygon) => {
       add.stop(100, fillColor[1], 0);
       add.from(0, 1);
       add.to(percent / 100, 1);
-    });
+    }).id(`${id}Gradient`);
     gradient.addClass(style.svgGradient);
   }
   container.attr({ fill: gradient });
@@ -74,6 +76,8 @@ const drawPolygon = (config: IDrawPolygon) => {
 const Blood: FC<IBloodProps> = (props) => {
   const shilterSVGRef = useRef<Svg>(null);
   const bloodSVGRef = useRef<Svg>(null);
+  const bloodValueRef = useRef<number>(0);
+  const shilterValueRef = useRef<number>(0);
 
   useEffect(() => {
     shilterSVGRef.current = SVG().addTo('#shilterWrapper').size(140, 15);
@@ -81,28 +85,49 @@ const Blood: FC<IBloodProps> = (props) => {
   }, []);
 
   useEffect(() => {
-    const bloodPercent = (props.blood / props.totalBlood) * 100;
+    shilterValueRef.current = props.shilter;
+  }, [props.shilter]);
+
+  useEffect(() => {
+    const bloodPercent = (bloodValueRef.current / props.totalBlood) * 100;
     const bloodBorderColor = bloodPercent < 20 ? 'rgba(255, 0, 0, 0.3)' : 'rgba(125, 125, 125, 0.2)';
     drawPolygon({
+      id: 'blood',
       container: bloodSVGRef.current,
       fullPath: FULL_PATH_BLOOD,
       borderColor: bloodBorderColor,
       percent: bloodPercent,
       fillColor: ['#810910', '#c40f19'],
     });
-  }, [props.blood, props.totalBlood]);
+  }, [props.totalBlood]);
 
   useEffect(() => {
-    const shilterPercent = (props.shilter / props.totalShilter) * 100;
+    const shilterPercent = (shilterValueRef.current / props.totalShilter) * 100;
     const shilterBorderColor = shilterPercent < 20 ? 'rgba(255, 0, 0, 0.3)' : 'rgba(125, 125, 125, 0.2)';
     drawPolygon({
+      id: 'shilter',
       container: shilterSVGRef.current,
       fullPath: FULL_PATH_SHILTER,
       borderColor: shilterBorderColor,
       percent: shilterPercent,
       fillColor: ['#0b808b', '#10dae9'],
     });
-  }, [props.shilter, props.totalShilter]);
+  }, [props.totalShilter]);
+
+  useEffect(() => {
+    anime({
+      targets: '#bloodGradient',
+      x2: props.blood / props.totalBlood,
+    });
+  }, [props.blood, props.totalBlood]);
+
+  useEffect(() => {
+    anime({
+      targets: '#shilterGradient',
+      x2: props.shilter / props.totalShilter,
+      endDelay: 1000,
+    });
+  }, [props.blood, props.shilter, props.totalBlood, props.totalShilter]);
 
   return (
     <div className={style.container}>
