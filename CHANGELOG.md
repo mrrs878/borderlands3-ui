@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.12...v0.0.13) (2021-11-15)
+
+
+### Features
+
+* 添加Card、Message组件导出 ([3a47f46](https://github.com/mrrs878/borderlands3-ui/commit/3a47f46a9be2f564db0acd458ebf3fcb7c88c306))
+
+
+### Bug Fixes
+
+* 修复样式导入问题 ([2727437](https://github.com/mrrs878/borderlands3-ui/commit/272743796148cdd9c61a8f4a3b542530b6ccf521))
+
+
+### Performance Improvements
+
+* 给Blood组件添加动画效果 ([8e057ba](https://github.com/mrrs878/borderlands3-ui/commit/8e057bad90a9e2c21a76abe123486933be94cf9e))
+* 使用rc-notification优化Message组件 ([766b735](https://github.com/mrrs878/borderlands3-ui/commit/766b73595f11e305ffffa7258e1efd4025012b25))
+* 优化Blood ([6abb111](https://github.com/mrrs878/borderlands3-ui/commit/6abb1115d0acfd7c1fa6a15fa6487c958ceed78b))
+
+
+### Styling
+
+* 修改样式，Message组件内容不可选中 ([44380d4](https://github.com/mrrs878/borderlands3-ui/commit/44380d4733e808c2a025f75efaf0354947890837))
+
+
+### Tests
+
+* 完善单元测试 ([57a028f](https://github.com/mrrs878/borderlands3-ui/commit/57a028fe59de330bacf4c26c19b8b891dbc928a2))
+
+
+### Docs
+
+* 更新Card组件为已完成状态 ([14f7dac](https://github.com/mrrs878/borderlands3-ui/commit/14f7dac1d4a3e2215c597a8e54b41998218578c6))
+
 ### [0.0.12](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.11...v0.0.12) (2021-11-05)
 
 
