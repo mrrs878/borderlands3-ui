@@ -1,0 +1,30 @@
+// Generated with util/create-component.js
+@import "../global.less";
+
+.container {
+  width: 400px;
+  height: 300px;
+  position: fixed;
+  top: 40%;
+  bottom: 0;
+  left: 15%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  font-family: 'Countach Italic';
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+.backgroundSvg {
+  transition: border linear .2s, box-shadow linear .5s;
+  border-color: @main-color;
+  filter: drop-shadow(0 0 10px @secondary-color);
+  background: @transparent;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
