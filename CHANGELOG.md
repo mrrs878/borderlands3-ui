@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.13...v0.0.14) (2021-12-13)
+
+
+### Features
+
+* 完成Accessibility背景 ([ff83596](https://github.com/mrrs878/borderlands3-ui/commit/ff83596051ede1945aabb4c2cf97231407705470))
+* 完善Setting组件 ([04c0a78](https://github.com/mrrs878/borderlands3-ui/commit/04c0a78dbefd5f1be6b5c492af019e86a30b2805))
+
+
+### CI
+
+* 添加pr工作流 ([6c298ba](https://github.com/mrrs878/borderlands3-ui/commit/6c298ba34e24e2c59280940f7c9e3232be5b23a0))
+
+
+### Docs
+
+* 添加Setting ([f85413e](https://github.com/mrrs878/borderlands3-ui/commit/f85413e0ee74632958a27d660e0a4db7b30f5327))
+
 ### [0.0.13](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.12...v0.0.13) (2021-11-15)
 
 
