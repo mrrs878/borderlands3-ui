@@ -1,0 +1,169 @@
+// Generated with util/create-component.js
+@import "../global.less";
+
+.container {
+  width: 600px;
+  height: 300px;
+  position: fixed;
+  top: 40%;
+  bottom: 0;
+  left: 15%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  font-family: 'Countach Italic';
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+}
+.backgroundSvg {
+  transition: border linear .2s, box-shadow linear .5s;
+  border-color: @main-color;
+  filter: drop-shadow(0 0 10px @secondary-color);
+  background: @transparent;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+.content {
+  margin-left: 10%;
+  margin-right: 10%;
+  box-sizing: border-box;
+  margin-top: 40px;
+  height: 227px;
+  overflow: auto;
+  position: relative;
+  padding-left: 20px;
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 1px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #1799fe;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #040a12;
+    margin: 5px 5px 5px 0;
+  }
+
+  &::-webkit-scrollbar-button:single-button {
+    background-color: transparent;
+    display: block;
+    border-style: solid;
+    height: 8px;
+    width: 10px;
+  }
+  &::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: 0 5px 5px 5px;
+    border-color: transparent transparent #1799fe transparent;
+  }
+  &::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    border-color: transparent transparent #FFFFFF transparent;
+  }
+  &::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: 5px 5px 0 5px;
+    border-color: #1799fe transparent transparent transparent;
+  }
+  &::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+    border-color: #FFFFFF transparent transparent transparent;
+  }
+
+  direction: rtl;
+  user-select: none;
+  .item {
+    direction: ltr;
+  }
+}
+
+.groupTitle {
+  color: #18f4f7;
+  margin: 15px 0;
+  padding-left: 25px;
+  position: relative;
+  direction: initial;
+  &::before {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #066f8a;
+    content: '';
+    transform: translateY(50%);
+  }
+}
+.item {
+  box-sizing: border-box;
+  padding: 5px 20px 5px 20px;
+  margin-bottom: 5px;
+  background: #00559f;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  &:hover {
+    background: mix(#d0c108, #fff, 80%);
+  }
+  &::before {
+    position: absolute;
+    left: -20px;
+    width: 30px;
+    top: 0;
+    bottom: 0;
+    content: '';
+    background: #040f19;
+  }
+}
+.itemTitle {
+  color: #00c7fa;
+}
+.itemOptionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  flex-shrink: 0;
+}
+.itemOption {
+  color: #fff;
+  margin: 0 20px;
+}
+
+
+.item:hover .arrowContainer {
+  opacity: 1;
+}
+
+.arrowContainer {
+  opacity: 0;
+}
+.arrowContainerLeft {
+  .arrow:first-child {
+    transform: skew(-45deg);
+  }
+  .arrow:last-child {
+    transform: skew(45deg);
+  }
+}
+.arrowContainerRight {
+  .arrow:first-child {
+    transform: skew(45deg);
+  }
+  .arrow:last-child {
+    transform: skew(-45deg);
+  }
+}
+.arrow {
+  background: #fff;
+  width: 3px;
+  height: 5px;
+  border: 1px solid #000;
+}
