@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-12-09 21:03:35
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-12-10 19:48:04
+ * @LastEditTime: 2021-12-13 20:46:50
  * @FilePath: \borderlands3-ui\src\Setting\index.tsx
  */
 import React, {
@@ -157,9 +157,17 @@ const Setting: FC<ISettingProps> = (props) => {
       <div className={style.item}>
         <span className={style.itemTitle}>{ item.title }</span>
         <div className={style.itemOptionContainer}>
-          <Arrow direction="left" onClick={onLeftArrowClick} />
+          {
+            item.options.length > 1 && (
+              <Arrow direction="left" onClick={onLeftArrowClick} />
+            )
+          }
           <span className={style.itemOption}>{ item.options[item.activedIndex] }</span>
-          <Arrow direction="right" onClick={onRightArrowClick} />
+          {
+            item.options.length > 1 && (
+              <Arrow direction="right" onClick={onRightArrowClick} />
+            )
+          }
         </div>
       </div>
     );
