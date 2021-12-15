@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-12-09 21:03:35
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-12-14 21:57:39
+ * @LastEditTime: 2021-12-15 22:01:36
  * @FilePath: \borderlands3-ui\src\Setting\index.test.tsx
  */
 
@@ -92,10 +92,13 @@ describe('Test Component', () => {
       // eslint-disable-next-line no-empty
     } catch (e) {}
 
+    const [LeftArrow] = Arrow;
+
     await act(async () => {
-      fireEvent.click(Arrow[0]);
-      const MouseADSOptionNew = await findAllByText('On');
-      expect(MouseADSOptionNew.length).toBe(1);
+      fireEvent.click(LeftArrow);
     });
+
+    const MouseADSOptionNew = await findAllByText('On');
+    expect(MouseADSOptionNew.length).toBe(1);
   });
 });
