@@ -2,66 +2,44 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-12-09 21:03:35
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-12-15 22:01:36
+ * @LastEditTime: 2021-12-16 22:01:22
  * @FilePath: \borderlands3-ui\src\Setting\index.test.tsx
  */
 
 import React, { useState } from 'react';
 import { act, fireEvent, render } from '@testing-library/react';
+import { clone } from 'lodash';
 import { Setting, SettingItems } from '.';
 
-const App = () => {
-  const [config, setConfig] = useState<SettingItems>({
-    Aiming: [
-      {
-        title: 'Mouse ADS Snap to Target',
-        key: '0',
-        options: ['Off', 'On'],
-        activedIndex: 0,
-      },
-      {
-        title: 'Controller Aim Assist',
-        key: '1',
-        options: ['Off', 'On'],
-        activedIndex: 0,
-      },
-      {
-        title: 'Controller ADS Snap to Target',
-        key: '6',
-        options: ['Off', 'On'],
-        activedIndex: 0,
-      },
-      {
-        title: 'Weapon ADS',
-        key: '2',
-        options: ['Off', 'On'],
-        activedIndex: 0,
-      },
-    ],
-    Movement: [
-      {
-        title: 'Sprint',
-        key: '3',
-        options: ['Toggle'],
-        activedIndex: 0,
-      },
-      {
-        title: 'Crouch',
-        key: '4',
-        options: ['Toggle'],
-        activedIndex: 0,
-      },
-      {
-        title: 'Mantle with Forward',
-        key: '5',
-        options: ['Off', 'On'],
-        activedIndex: 0,
-      },
-    ],
-  });
-  return (
-    <Setting items={config} onChange={(newConfig) => setConfig(newConfig)} />
-  );
+const CONFIG: SettingItems = {
+  Aiming: [
+    {
+      title: 'Mouse ADS Snap to Target',
+      key: '0',
+      options: ['Off', 'On'],
+      activedIndex: 0,
+    },
+    {
+      title: 'Controller Aim Assist',
+      key: '1',
+      options: ['Off', 'On'],
+      activedIndex: 0,
+    },
+  ],
+  Movement: [
+    {
+      title: 'Sprint',
+      key: '3',
+      options: ['Toggle'],
+      activedIndex: 0,
+    },
+    {
+      title: 'Crouch',
+      key: '4',
+      options: ['Toggle'],
+      activedIndex: 0,
+    },
+  ],
 };
 
 describe('Test Component', () => {
@@ -70,6 +48,12 @@ describe('Test Component', () => {
   });
 
   it('Setting item should diaplay normally', async () => {
+    const App = () => {
+      const [config, setConfig] = useState<SettingItems>(CONFIG);
+      return (
+        <Setting items={config} onChange={(newConfig) => setConfig(newConfig)} />
+      );
+    };
     const { findByText } = render(<App />);
 
     const tmp = await findByText('Controller Aim Assist');
@@ -77,6 +61,10 @@ describe('Test Component', () => {
   });
 
   it('After clicking the arrow, the value should be able to switch normally', async () => {
+    let config = clone(CONFIG);
+    const App = () => (
+      <Setting items={config} onChange={(newConfig) => { config = newConfig; }} />
+    );
     const { findAllByRole, findAllByText } = render(<App />);
 
     const Arrow = await findAllByRole('button');
@@ -92,13 +80,24 @@ describe('Test Component', () => {
       // eslint-disable-next-line no-empty
     } catch (e) {}
 
-    const [LeftArrow] = Arrow;
+    const [LeftArrow, RightArrow] = Arrow;
 
-    await act(async () => {
+    act(() => {
       fireEvent.click(LeftArrow);
     });
 
-    const MouseADSOptionNew = await findAllByText('On');
-    expect(MouseADSOptionNew.length).toBe(1);
+    expect(config.Aiming[0].activedIndex).toBe(1);
+
+    act(() => {
+      fireEvent.click(LeftArrow);
+    });
+
+    expect(config.Aiming[0].activedIndex).toBe(0);
+
+    act(() => {
+      fireEvent.click(RightArrow);
+    });
+
+    expect(config.Aiming[0].activedIndex).toBe(1);
   });
 });
