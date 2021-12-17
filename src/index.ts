@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-12 10:10:23
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-14 17:03:30
+ * @LastEditTime: 2021-12-14 21:13:41
  * @FilePath: \borderlands3-ui\src\index.ts
  */
 import './font.less';
@@ -13,3 +13,4 @@ export { Blood } from './Blood';
 export { Modal } from './Modal';
 export { Card } from './Card';
 export { Message } from './Message';
+export { Setting } from './Setting';
