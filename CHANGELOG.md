@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.14...v0.0.15) (2021-12-17)
+
+
+### Bug Fixes
+
+* 增加Setting ([c02a25e](https://github.com/mrrs878/borderlands3-ui/commit/c02a25eedf19e4d1cece9e314cfdc03e50801aed))
+
+
+### Performance Improvements
+
+* 候选项长度为1时不显示操作箭头 ([98fe8b0](https://github.com/mrrs878/borderlands3-ui/commit/98fe8b01d80ada5caa01a62f8cb63325900087dd))
+
+
+### Tests
+
+* 修改测试用例 ([dee13c6](https://github.com/mrrs878/borderlands3-ui/commit/dee13c6eb915962ddb2e951a887d6a2e47996782))
+* 修改act ([461973d](https://github.com/mrrs878/borderlands3-ui/commit/461973d8845060b458725b452d4ade6583abed89))
+* 增加测试用例 ([ac4b8b2](https://github.com/mrrs878/borderlands3-ui/commit/ac4b8b22414fce3a0cd17fad98e1060a3140b283))
+
 ### [0.0.14](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.13...v0.0.14) (2021-12-13)
 
 
