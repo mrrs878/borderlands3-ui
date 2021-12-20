@@ -1,12 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: PULL_REQUEST
+name: CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: 
+      - feature/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,9 +24,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Install and Build 🔧
-        run: | # Install npm packages and build the Storybook files
-          yarn install
+      - name: Install 🔧
+        run: yarn install
+
+      - name: Lint 🔍
+        run: yarn lint
 
       - name: Tests 🎯
-        run: yarn test --watchAll=false --coverage
+        run: yarn test
