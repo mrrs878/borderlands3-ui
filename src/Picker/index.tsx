@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-12-20 20:18:34
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-12-20 20:57:30
+ * @LastEditTime: 2021-12-21 21:46:50
  */
 
 import React, { CSSProperties, FC } from 'react';
@@ -45,7 +45,7 @@ interface IPickerProps {
   titleClassName?: string;
   optionStyle?: CSSProperties;
   optionClassName?: string;
-  onChange: (newConfig: number, direction: ArrowDirection) => void;
+  onChange?: (newConfig: number, direction: ArrowDirection) => void;
 }
 
 const Picker: FC<IPickerProps> = (props) => {
@@ -65,15 +65,15 @@ const Picker: FC<IPickerProps> = (props) => {
     props.onChange?.(newIndex, ArrowDirection.right);
   };
   return (
-    <div className={`${style.container} ${containerClassName}`} style={containerStyle}>
+    <div className={`${style.container} ${className(containerClassName)}`} style={containerStyle}>
       <span className={`${style.title} ${titleClassName}`} style={titleStyle}>{ title }</span>
-      <div className={style.optionContainer}>
+      <div className={className(style.optionContainer)}>
         {
           options.length > 1 && (
             <Arrow direction={ArrowDirection.left} onClick={onLeftArrowClick} />
           )
         }
-        <span className={`${style.option} ${optionClassName}`} style={optionStyle}>{ options[activedIndex] }</span>
+        <span className={`${style.option} ${className(optionClassName)}`} style={optionStyle}>{ options[activedIndex] }</span>
         {
           options.length > 1 && (
             <Arrow direction={ArrowDirection.right} onClick={onRightArrowClick} />
@@ -91,6 +91,7 @@ Picker.defaultProps = {
   titleClassName: '',
   optionStyle: {},
   optionClassName: '',
+  onChange: () => {},
 };
 
-export { Picker, ArrowDirection };
+export { Picker, ArrowDirection, IPickerProps };
