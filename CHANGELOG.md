@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.16](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.15...v0.0.16) (2021-12-22)
+
+
+### Others
+
+* 修复打包错误 ([2b0af10](https://github.com/mrrs878/borderlands3-ui/commit/2b0af1007cde7c6a975199849e882dd83ddcd73c))
+
 ### [0.0.15](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.14...v0.0.15) (2021-12-17)
 
 
