@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-11 22:05:00
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-14 21:51:30
+ * @LastEditTime: 2021-12-22 20:05:51
  * @FilePath: \borderlands3-ui\rollup.config.js
  */
 // @ts-check
@@ -47,4 +47,5 @@ export default {
       limit: 10 * 1024,
     }),
   ],
+  external: ['lodash', 'react-is', 'classnames'],
 };
