@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-11-05 19:22:01
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-11-10 21:23:38
+ * @LastEditTime: 2021-12-24 19:51:44
  * @FilePath: \borderlands3-ui\src\Card\Gun.tsx
  */
 
@@ -52,23 +52,23 @@ const GunIndicator = (props: IGunIndicatorProps) => (
 const Gun = (props: ICardGunProps) => {
   const gunContainer = useRef<HTMLDivElement>(null);
   const superAddionContainer = useRef<HTMLDivElement>(null);
-  const backgroundSVGRef = useRef<Svg>(null);
+  const gunBackgroundSVGRef = useRef<Svg>(null);
 
   useEffect(() => {
-    const container = document.querySelector('#backgroundSVGRef');
+    const container = document.querySelector('#gunBackgroundSVGRef');
     if (container) {
-      backgroundSVGRef.current = SVG().addTo('#backgroundSVGRef').addClass(style.backgroundSvg);
+      gunBackgroundSVGRef.current = SVG().addTo('#gunBackgroundSVGRef').addClass(style.backgroundSvg);
     }
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      if (backgroundSVGRef.current) {
+      if (gunBackgroundSVGRef.current) {
         const { clientWidth, clientHeight } = gunContainer.current;
         const offset1 = 20;
         const storkWidth = 4;
 
-        backgroundSVGRef.current.polygon([
+        gunBackgroundSVGRef.current.polygon([
           [offset1 / 2, 0],
           [clientWidth - offset1, 0],
           [clientWidth, offset1],
@@ -88,7 +88,7 @@ const Gun = (props: ICardGunProps) => {
         });
 
         const clientHeight2 = superAddionContainer.current.clientHeight;
-        backgroundSVGRef.current.polygon([
+        gunBackgroundSVGRef.current.polygon([
           [clientWidth - storkWidth, clientHeight - offset1 * 2.5 - clientHeight2],
           [clientWidth - storkWidth, clientHeight - offset1 - storkWidth],
           [clientWidth - offset1, clientHeight - storkWidth],
@@ -101,7 +101,7 @@ const Gun = (props: ICardGunProps) => {
           [storkWidth, clientHeight - offset1 * 2.5 - clientHeight2],
         ]).fill('#1c1e22');
 
-        backgroundSVGRef.current.polygon([
+        gunBackgroundSVGRef.current.polygon([
           [offset1 / 2, 0],
           [clientWidth - offset1 * 2 - 10, 0],
           [clientWidth - offset1 * 2 - 10, offset1],
@@ -112,7 +112,7 @@ const Gun = (props: ICardGunProps) => {
           [offset1 / 2, 0],
         ]).fill('#06b434');
 
-        backgroundSVGRef.current.polygon([
+        gunBackgroundSVGRef.current.polygon([
           [offset1 / 2, 0],
           [clientWidth - offset1 * 2 - 10, 0],
           [clientWidth - offset1 * 2 - 10, offset1],
@@ -128,7 +128,7 @@ const Gun = (props: ICardGunProps) => {
 
   return (
     <div className={style.container} ref={gunContainer}>
-      <div className={style.background} id="backgroundSVGRef" />
+      <div className={style.background} id="gunBackgroundSVGRef" />
       <div className={style.header}>
         <div className={style.score}>{ props.score }</div>
         <span>ITEM SCORE</span>

@@ -2,7 +2,7 @@
 * @Author: mrrs878@foxmail.com
  * @Date: 2021-10-20 21:10:00
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-10-22 14:45:53
+ * @LastEditTime: 2021-12-24 19:52:01
  * @FilePath: \borderlands3-ui\src\Modal\index.tsx
 */
 /* eslint-disable jsx-a11y/control-has-associated-label */
@@ -27,21 +27,21 @@ interface Mask {
 }
 
 const Modal: FC<IModalProps> = (props) => {
-  const backgroundSVGRef = useRef<Svg>(null);
+  const modalBackgroundSVGRef = useRef<Svg>(null);
 
   useEffect(() => {
-    const container = document.querySelector('#backgroundSVGRef');
+    const container = document.querySelector('#modalBackgroundSVGRef');
     if (props.visible && container) {
-      backgroundSVGRef.current = SVG().addTo('#backgroundSVGRef').addClass(style.backgroundSvg);
+      modalBackgroundSVGRef.current = SVG().addTo('#modalBackgroundSVGRef').addClass(style.backgroundSvg);
     }
   }, [props.visible]);
 
   useEffect(() => {
-    if (props.visible && backgroundSVGRef.current) {
-      const svgContainer = document.querySelector('#backgroundSVGRef');
+    if (props.visible && modalBackgroundSVGRef.current) {
+      const svgContainer = document.querySelector('#modalBackgroundSVGRef');
       const { clientWidth, clientHeight } = svgContainer;
       const offset1 = 15;
-      backgroundSVGRef.current.polygon([
+      modalBackgroundSVGRef.current.polygon([
         [offset1, 0],
         [clientWidth - offset1, 0],
         [clientWidth, offset1],
@@ -53,7 +53,7 @@ const Modal: FC<IModalProps> = (props) => {
         [offset1, 0],
       ]).fill('#1583d8').stroke('#000');
 
-      backgroundSVGRef.current.polygon([
+      modalBackgroundSVGRef.current.polygon([
         [offset1, 0],
         [clientWidth - offset1, 0],
         [clientWidth, offset1],
@@ -79,7 +79,7 @@ const Modal: FC<IModalProps> = (props) => {
         onClick={props.mask.closeable ? props.mask.onClick : () => {}}
       />
       <div className={`${style.container} ${props.containerClass}`} style={props.style}>
-        <div className={style.background} id="backgroundSVGRef" />
+        <div className={style.background} id="modalBackgroundSVGRef" />
         { props.children }
       </div>
     </div>

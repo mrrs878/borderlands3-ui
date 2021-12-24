@@ -2,7 +2,7 @@
  * @Author: mrrs878@foxmail.com
  * @Date: 2021-12-21 18:51:26
  * @LastEditors: mrrs878@foxmail.com
- * @LastEditTime: 2021-12-21 21:43:45
+ * @LastEditTime: 2021-12-24 19:52:21
  * @FilePath: \borderlands3-ui\src\List\index.tsx
  */
 
@@ -33,25 +33,25 @@ interface IListProps {
 }
 
 const List: FC<IListProps> = (props) => {
-  const backgroundSVGRef = useRef<Svg>(null);
+  const listBackgroundSVGRef = useRef<Svg>(null);
 
   useEffect(() => {
-    const container = document.querySelector('#backgroundSVGRef');
+    const container = document.querySelector('#listBackgroundSVGRef');
     if (container) {
-      backgroundSVGRef.current = SVG().addTo('#backgroundSVGRef').addClass(style.backgroundSvg);
+      listBackgroundSVGRef.current = SVG().addTo('#listBackgroundSVGRef').addClass(style.backgroundSvg);
     }
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      if (backgroundSVGRef.current) {
-        const svgContainer = document.querySelector('#backgroundSVGRef');
+      if (listBackgroundSVGRef.current) {
+        const svgContainer = document.querySelector('#listBackgroundSVGRef');
         const { clientWidth, clientHeight } = svgContainer;
         const offset1 = 8;
         const titleWidth = 150;
         const offset2 = 5;
 
-        backgroundSVGRef.current.polygon([
+        listBackgroundSVGRef.current.polygon([
           [offset1, 0],
           [(clientWidth - titleWidth) / 2 - offset2 - 2, 0],
           [(clientWidth - titleWidth) / 2, offset2],
@@ -67,7 +67,7 @@ const List: FC<IListProps> = (props) => {
           [offset1, 0],
         ]).fill('#0c5788').stroke('#000');
 
-        backgroundSVGRef.current.polygon([
+        listBackgroundSVGRef.current.polygon([
           [offset1, 0],
           [(clientWidth - titleWidth) / 2 - offset2 - 2, 0],
           [(clientWidth - titleWidth) / 2, offset2],
@@ -83,24 +83,24 @@ const List: FC<IListProps> = (props) => {
           [offset1, 0],
         ]).fill('#004d89').stroke('#000').scale(0.98, 0.98);
 
-        backgroundSVGRef.current.text('ACCESSIBILITY')
+        listBackgroundSVGRef.current.text('ACCESSIBILITY')
           .attr({
             style: 'font-size: 20px',
           })
           .center(clientWidth / 2, offset2 / 2)
           .fill('#fff');
 
-        backgroundSVGRef.current.rect(clientWidth - 8, offset1 * 2)
+        listBackgroundSVGRef.current.rect(clientWidth - 8, offset1 * 2)
           .x(4)
           .y(offset1 * 2)
           .fill('#131418');
 
-        backgroundSVGRef.current.rect(clientWidth - 8, clientHeight - offset1 * 8)
+        listBackgroundSVGRef.current.rect(clientWidth - 8, clientHeight - offset1 * 8)
           .x(4)
           .y(offset1 * 4)
           .fill('#041724');
 
-        backgroundSVGRef.current.polygon([
+        listBackgroundSVGRef.current.polygon([
           [clientWidth - 4 * 2, offset1],
           [clientWidth - 4 * 2, offset1 * 4 - 2],
           [clientWidth - 4 * 2 - offset1, offset1 * 5 - 2],
@@ -117,7 +117,7 @@ const List: FC<IListProps> = (props) => {
 
   return (
     <div className={`${style.container} ${props.containerClass}`} style={props.containerstyle}>
-      <div className={style.background} id="backgroundSVGRef" />
+      <div className={style.background} id="listBackgroundSVGRef" />
       <div className={style.content}>
         {
           Reflect.ownKeys(props.items).map((groupsTitle: string) => (
