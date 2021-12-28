@@ -1,0 +1,73 @@
+// Generated with util/create-component.js
+@import "../global.less";
+
+.container {
+  font-family: 'Countach Italic';
+  box-sizing: border-box;
+  padding: 5px 20px 5px 20px;
+  margin-bottom: 5px;
+  background: #00559f;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  max-width: 400px;
+  &:hover {
+    background: mix(#d0c108, #fff, 80%);
+  }
+  &::before {
+    position: absolute;
+    left: -20px;
+    width: 30px;
+    top: 0;
+    bottom: 0;
+    content: '';
+    background: #040f19;
+  }
+  .title {
+    color: #00c7fa;
+  }
+  .optionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 40%;
+    flex-shrink: 0;
+  }
+  .option {
+    color: #fff;
+    margin: 0 20px;
+  }
+  
+  
+  &:hover .arrowContainer {
+    opacity: 1;
+  }
+}
+
+.arrowContainer {
+  opacity: 0;
+}
+.arrowContainerLeft {
+  .arrow:first-child {
+    transform: skew(-45deg);
+  }
+  .arrow:last-child {
+    transform: skew(45deg);
+  }
+}
+.arrowContainerRight {
+  .arrow:first-child {
+    transform: skew(45deg);
+  }
+  .arrow:last-child {
+    transform: skew(-45deg);
+  }
+}
+.arrow {
+  background: #fff;
+  width: 3px;
+  height: 5px;
+  border: 1px solid #000;
+}
