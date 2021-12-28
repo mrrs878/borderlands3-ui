@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.16...v0.0.17) (2021-12-28)
+
+
+### Features
+
+* 添加单个className判断 ([dd6dd1d](https://github.com/mrrs878/borderlands3-ui/commit/dd6dd1dae4b46f82d3d315630d2e5ad78adc5073))
+* 添加List组件 ([b69d784](https://github.com/mrrs878/borderlands3-ui/commit/b69d784cb8d0156186e4f9d32d88bdc8e77bcdad))
+* 添加Picker组件 ([650094a](https://github.com/mrrs878/borderlands3-ui/commit/650094aa7bac51432bb5d3c5c081e0fb000841a6))
+
+
+### Bug Fixes
+
+* 添加@types/ramda ([59a67c0](https://github.com/mrrs878/borderlands3-ui/commit/59a67c0137dd0a16517939f0f37cf19babae02f3))
+* 修复缺少的导出 ([1955e1d](https://github.com/mrrs878/borderlands3-ui/commit/1955e1d5e1d745cf28cdcea6905192a6eb283bfa))
+* svg容器为同一个id，引用多个组件时样式错误 ([82d4a08](https://github.com/mrrs878/borderlands3-ui/commit/82d4a0810cf269f5931a31915492225d4c8499f1))
+
+
+### Performance Improvements
+
+* 添加class为空时兼容 ([a8865bc](https://github.com/mrrs878/borderlands3-ui/commit/a8865bc5cbab13849057fcc430b490fcda116d63))
+
+
+### CI
+
+* 调整ci脚本 ([712c3e2](https://github.com/mrrs878/borderlands3-ui/commit/712c3e28e50cea077358cadf0dbe382b2b090072))
+* 调整ci脚本 ([6061452](https://github.com/mrrs878/borderlands3-ui/commit/6061452de7a4099c6299a76279d9f65d1610b40f))
+
+
+### Styling
+
+* 样式修复 ([0bbfac8](https://github.com/mrrs878/borderlands3-ui/commit/0bbfac80b0f358c1841506eb1693ab472866abea))
+
 ### [0.0.16](https://github.com/mrrs878/borderlands3-ui/compare/v0.0.15...v0.0.16) (2021-12-22)
 
 
